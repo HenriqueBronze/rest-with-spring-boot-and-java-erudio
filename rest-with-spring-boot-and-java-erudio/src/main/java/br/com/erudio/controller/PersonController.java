@@ -27,8 +27,7 @@ public class PersonController {
 	@GetMapping(produces = {
 								MediaType.APPLICATION_JSON,
 								MediaType.APPLICATION_XML,
-								MediaType.APPLICATION_YML,
-								MediaType.APPLICATION_CSV
+								MediaType.APPLICATION_YML
 	
 							}
 		)
