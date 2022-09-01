@@ -29,7 +29,7 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
 	
 	
 	@ExceptionHandler(ResourceNotFoundException.class)
-	public final ResponseEntity<ExceptionResponse> handleNotFoundExceptions(Exception ex, WebRequest request) {
+	public final ResponseEntity<ExceptionResponse> RequiredObjectIsNullException(Exception ex, WebRequest request) {
 		ExceptionResponse exceptionResponse = 
 				new ExceptionResponse(
 						new Date(),
