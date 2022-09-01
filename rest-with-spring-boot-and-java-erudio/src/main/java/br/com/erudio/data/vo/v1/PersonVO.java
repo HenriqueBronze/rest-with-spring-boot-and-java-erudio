@@ -14,7 +14,6 @@ public class PersonVO implements Serializable {
 
     private String gender;
 
-
     public String getFirstName() {
         return firstName;
     }
