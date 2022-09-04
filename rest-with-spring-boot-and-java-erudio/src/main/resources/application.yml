@@ -14,4 +14,9 @@ spring:
 springdoc:
   pathsToMatch: /api/**/v1/**
   swagger-ui:
-    use-root-path: true    
+    use-root-path: true
+spring-doc:
+  pathsToMatch: /api/**/v1/**
+  swagger-ui:
+    use-root-path: true
+
