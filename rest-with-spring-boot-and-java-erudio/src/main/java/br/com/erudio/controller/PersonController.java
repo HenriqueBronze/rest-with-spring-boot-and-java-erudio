@@ -39,6 +39,7 @@ public class PersonController {
 							}
 		)
 
+		
 	@Operation(summary = "Finds all people", description = "Finds all people",
 		tags = {"People"},
 		responses = {
