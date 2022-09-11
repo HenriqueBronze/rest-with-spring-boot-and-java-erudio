@@ -9,38 +9,36 @@ import java.util.Optional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
-import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.junit.jupiter.api.TestInstance.Lifecycle;
 
-import br.com.erudio.model.Person;
-import br.com.erudio.respositories.PersonRepository;
-import br.com.erudio.restwithspringbootandjavaerudio.unittests.mapper.mocks.MockPerson;
+import br.com.erudio.model.Book;
+import br.com.erudio.respositories.BookRepository;
+import br.com.erudio.restwithspringbootandjavaerudio.unittests.mapper.mocks.MockBook;
 
 @TestInstance(Lifecycle.PER_CLASS)
 @ExtendWith(MockitoExtension.class)
-public class PersonServicesTest {
-
-    MockPerson input;
+public class BookServicesTest {
+    
+    MockBook input;
 
     @InjectMocks
-    private PersonServices service;
+    private BookServices service;   
 
     @Mock
-    PersonRepository repository;
-
+    BookRepository repository;    
+    
     @BeforeEach
     void setUpMocks() throws Exception{
 
-        input  = new MockPerson();
+        input  = new MockBook();
         MockitoAnnotations.openMocks(this);
     }
 
-
-    
     @Test
     void testCreate() {
 
@@ -59,7 +57,7 @@ public class PersonServicesTest {
     @Test
     void testFindById() {
 
-        Person person = input.mockEntity();
+        Book person = input.mockEntity();
         person.setId(1L);
         when(repository.findById(1L)).thenReturn(Optional.of(person));
 
@@ -68,7 +66,7 @@ public class PersonServicesTest {
         assertNotNull(result.getKey());
         assertNotNull(result.getLinks());
         System.out.println(result.toString());
-        assertTrue(result.toString().contains("links: [</api/person/v1/1>;rel=\"self\"]"));
+        assertTrue(result.toString().contains("links: [</api/book/v1/1>;rel=\"self\"]"));
 
 
     }
@@ -77,4 +75,6 @@ public class PersonServicesTest {
     void testUpdate() {
 
     }
+
+
 }
