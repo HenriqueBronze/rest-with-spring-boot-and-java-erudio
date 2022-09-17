@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +23,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
+
 
 @RestController
 @RequestMapping("api/person/v1")
@@ -59,6 +61,8 @@ public class PersonController {
 	public List<PersonVO> findAll() {
 		return service.findAll();
 	}
+
+	//@CrossOrigin(origins = "http://localhost:8080")
 	
 	@GetMapping(value = "/{id}",
 			produces = {
@@ -99,6 +103,8 @@ public class PersonController {
 						}
 			)
 
+
+	//@CrossOrigin(origins = {"http://localhost:8080","https://erudio.com.br"})
 	@Operation(summary = "Adds a person", description = "Adds a person",
 	tags = {"People"},
 	responses = {
